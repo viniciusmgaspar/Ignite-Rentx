@@ -1,6 +1,6 @@
 import {CreateSpecificationUseCase} from "./CreateSpecificationUseCase"
 
-import {SpecificationRepository} from "../../repositories/implementations/SpecificationsRepositories"
+import {SpecificationRepository} from "../../infra/typeorm/repositories/SpecificationsRepositories"
 import { CreateSpecificationController } from "./CreateSpecificationController"
 
 
