@@ -40,7 +40,6 @@ Somente usuario administrador pode cadastrar uma especificação.
 
 **Requisitos Funcionais(RF)**
 Deve ser possivel cadastrar a imagem do carro
-Deve ser possivel listar todos os carros
 
 **Requisitos não Funcionais(RNF)**
 Utilizar o multer para upload dos arquivos

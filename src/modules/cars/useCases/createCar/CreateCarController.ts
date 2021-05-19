@@ -7,7 +7,6 @@ class CreateCarController {
     async handle(request: Request, response: Response): Promise<Response>{
         const {name,brand,category_id,daily_rate,description,fine_amount,license_plate} = request.body
         
-        
         const createCarUseCase = container.resolve(CreateCarUseCase)
 
         const car = await createCarUseCase.execute({
@@ -19,6 +18,7 @@ class CreateCarController {
             fine_amount,
             license_plate
         })
+        
 
         return response.status(201).json(car)
     }

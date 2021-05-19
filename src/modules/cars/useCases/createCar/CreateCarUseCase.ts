@@ -30,7 +30,7 @@ class CreateCarUseCase {
         }
 
 
-        const car = await this.carsRepository.create({
+        const car =  this.carsRepository.create({
             name,
             brand,
             category_id,
@@ -39,6 +39,8 @@ class CreateCarUseCase {
             fine_amount,
             license_plate
         })
+            
+        
         return car
     }
 }
