@@ -52,7 +52,6 @@ Somente usuario administrador pode cadastrar.
 
 **Requisitos Funcionais(RF)**
 Deve ser possivel cadastrar um aluguel
-Deve ser possivel listar todos os carros
 
 
 **Regra de Negocios(RN)**
@@ -60,3 +59,32 @@ O aluguel deve ter duração minima de 24 horas.
 Não deve ser possivel cadastrar um aluguel caso já exista um aberto para o mesmo usuário
 Não deve ser possivel cadastrar um aluguel caso já exista um aberto para o mesmo carro
 O usuario deve estar logado na aplicacao
+Ao realizaro o aluguel, o status deverar ser alterado para indisponivel
+
+# Devolucao do carro
+
+**Requisitos Funcionais(RF)**
+Deve ser possivel realizar a devolucao do carro
+
+**Regra de Negocios(RN)**
+
+Se o carro for devolvido com menos de 24horas, devera ser cobrado diaria completa
+Ao realizar a devolucao, o carro devera ser liberado para outro aluguel
+Ao realizar a devolucao, o usuario devera ser liberado para outro aluguel
+Ao realizar a devolucao, devera ser calculado o total do aluguel
+Caso o horario da devolucao seja superior ao horario previsto de entrega, devera ser cobrado multa proporcional aos dias de atraso
+Caso haja multa, devera ser somado ao total do aluguel
+O usuario deve estar logado na aplicacao
+
+
+# Recuperar Senha
+
+**Requisitos Funcionais(RF)**
+Deve ser possivel o usuario recuperar a senha informando o email
+O usuario deve receber um email com o passo a passo para recuperacao da senha
+o usuario deve conseguir  inserir uma nova senha
+
+**Regra de Negocios(RN)**
+
+I usuario precisa informar uma nova senha
+o link enviado para recuperacao deve expirar em 3 horas

@@ -3,12 +3,12 @@ import { CategoriesRepositoryInMemoy } from "../../repositories/in-memoy/Categor
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase"
 
 let createCategory: CreateCategoryUseCase
-let categoriesRepositoryInMemoy: CategoriesRepositoryInMemoy
+let categoriesRepositoryInMemory: CategoriesRepositoryInMemoy
 
 describe("Create Category", ()=> {
     beforeEach(()=>{
-        categoriesRepositoryInMemoy = new CategoriesRepositoryInMemoy()
-        createCategory = new CreateCategoryUseCase(categoriesRepositoryInMemoy)
+        categoriesRepositoryInMemory = new CategoriesRepositoryInMemoy()
+        createCategory = new CreateCategoryUseCase(categoriesRepositoryInMemory)
     })
 
 
@@ -22,27 +22,26 @@ describe("Create Category", ()=> {
                 description: category.description
             });
 
-        const categoryCreated = await categoriesRepositoryInMemoy.findByName(category.name)
+        const categoryCreated = await categoriesRepositoryInMemory.findByName(category.name)
 
         expect(categoryCreated).toHaveProperty("id")
     })
 
     it("should not be able to create a new category with the same name", async ()=> {
-        
-        expect(async () => {
-            const category = {
-                name: "Category Test",
-                description: "Category description Test" 
-            }    
-            await createCategory.execute({
-                    name: category.name,
-                    description: category.description
-                });
-            await createCategory.execute({
+        const category = {
+            name: "Category Test",
+            description: "Category description Test" 
+        }    
+        await createCategory.execute({
                 name: category.name,
                 description: category.description
             });
-        }).rejects.toBeInstanceOf(AppError)
+
+        await expect(createCategory.execute({
+                name: category.name,
+                description: category.description
+            })
+        ).rejects.toEqual(new AppError("Category already exists!"))
 
 
     })
