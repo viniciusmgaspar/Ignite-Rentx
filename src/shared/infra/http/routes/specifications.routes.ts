@@ -12,8 +12,6 @@ const createSpecificationController = new CreateSpecificationController()
 specificationsRoutes.use(ensureAuthenticated)
 specificationsRoutes.post("/", ensureAuthenticated, ensureAdmin, createSpecificationController.handle)
 
-/*specificationsRoutes.get("/", (request, response)=>{
-   
-})*/
+
 
 export {specificationsRoutes}

@@ -1,3 +1,8 @@
 node_modules
 .vscode
-.docker-compose.yml
+tmp/*
+coverage
+.env
+!tmp/.gitkeep
+dist
+ormconfig.json
